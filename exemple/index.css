@@ -1,0 +1,259 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gilroy', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eee;
+    padding: 0.5em;
+}
+
+header {
+    background-color: #ffde59;
+    background-image: linear-gradient(to right, #ffde59, #fbac50);
+    border-radius: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding: 0.1em 1em;
+    margin: 1em 0.1em;
+}
+
+.btn {
+    border-radius: 5px;
+    height: 40px;
+    min-width: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none!important;
+    color: #fbac50!important;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    outline: none;
+}
+
+.btn>* {
+    z-index: 1;
+}
+
+.btn::before {
+    content: " ";
+    position: absolute;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #ffde59, #fbac50);
+    z-index: 0;
+    transform: translate(0, 105%);
+    transition: transform cubic-bezier(0.865, -0.600, 0.320, 1.605) 0.3s;
+}
+
+.btn.danger {
+    color: #fe4c4c!important;
+}
+
+.btn.success {
+    color: #4caf50!important;
+}
+
+.btn.danger::before {
+    background-image: linear-gradient(to right, #ffde59, #fe4c4c);
+}
+
+.btn.success::before {
+    background-image: linear-gradient(to right, #ffde59, #4caf50);
+}
+
+.btn:hover {
+    color: white!important;
+    transition: all cubic-bezier(0.865, -0.600, 0.320, 1.605) 0.3s;
+}
+
+.btn:hover::before {
+    transform: translate(0, 0);
+}
+
+.canvas, canvas {
+    background-color: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 2px #0002;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.canvas .pixel {
+    display: inline-flex;
+    /* outline: solid 0.01em #0001; */
+}
+
+.canvas .pixel.active {
+    background-color: currentColor;
+}
+
+.canvas .pixel:hover {
+    background-color: #0001;
+}
+
+.canvas .pixel.active:hover {
+    background-color: currentColor;
+    /* outline: solid 0.01em #fff1; */
+}
+
+.result {
+    display: flex;
+}
+
+.resultsquare {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #1e5c20;
+    border-radius: 0.1em;
+    margin: 0.2em;
+    color: #fff;
+    transition: transform cubic-bezier(0.865, -0.600, 0.320, 1.605) 0.3s ;
+}
+
+.resultsquare.active {
+    transform: scale(1.2);
+    background-color: #ffbf00;
+}
+
+.resultsquare span:first-child {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff8;
+}
+
+table {
+    font-size: 0.7em;
+    border-collapse: collapse;
+    padding: 0 0.3em;
+}
+table thead tr th {
+    background-color: #C4D600;
+    color: #fff;
+    padding: 0 0.3em;    
+    text-align: center;
+}
+
+table tbody tr td {
+    background-color: #fff;
+    color: #444;
+    border-bottom: 2px solid #C4D600;
+    padding: 0 0.3em;
+}
+
+table tbody tr td:last-child {
+    /* width: 1%; */
+    white-space: nowrap;
+}
+
+table tbody tr td:not(:first-child) {
+    text-align: end;
+    border-right: 1px dotted black;
+}
+
+table tbody tr td, table thead tr th  {
+    border-right: 1px dotted black;
+}
+
+div#status {
+    padding: 0.3em;
+    font-size: x-small;
+    border-radius: 0.3em;
+    background-color: #444;
+    color: #fff;
+}
+
+div#status::before {
+    content: "Status:";
+    font-size: larger;
+    font-weight: bold;
+}
+
+div#status .system {
+    background: #555;
+    margin: 0.2em;
+    padding: 0.1em 0.3em;
+    border-radius: 1em;
+}
+
+div#status .train {
+    background: #156495;
+    margin: 0.2em;
+    padding: 0.1em 0.3em;
+    border-radius: 1em;
+}
+
+div#status .mape {
+    background: #068724;
+    margin: 0.2em;
+    padding: 0.1em 0.3em;
+    border-radius: 1em;
+}
+
+div#status > div > b {
+    font-weight: normal;
+    background: #0003;
+    border-radius: 1em;
+    padding: 0.1em 0.3em;
+    font-size: 0.8em;
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 0.5em;
+        font-size: 0.9em;
+        border-radius: 20px;
+        max-width: calc(100% - 5em);
+        margin: 0.5em auto;
+    }
+    .btn {
+        height: 35px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1em;
+    }
+    header {
+        font-size: 0.8em;
+        padding: 0.5em;
+        border-radius: 15px;
+    }
+    .btn {
+        height: 30px;
+        font-size: 0.8em;
+    }
+}
+
+/*.map((input, i) => {
+                const attention = new Attention(1);
+                const result = attention.computeAttention( Attention.transpose([input]) );
+                
+                if(trainingCount === 0) console.log({attention, result});
+                // Acumular a importância de cada variável
+                result.scores.forEach((_score, index) => {
+                    for (const score of _score) {                        
+                        if (index === 0) importanceTracker.receitaLiquida += score;
+                        if (index === 1) importanceTracker.cpv += score;
+                        if (index === 2) importanceTracker.despesasOperacionais += score;
+                        if (index === 3) importanceTracker.taxaCambio += score;
+                        if (index === 4) importanceTracker.margemBruta += score;
+                    }
+                });
+
+                return result.weightedInputs.flat();
+              });*/
